@@ -1,5 +1,4 @@
 #pragma once
-
 #include <matrix.hpp>
 
 matrix small_mult(matrix mat1, matrix mat2);

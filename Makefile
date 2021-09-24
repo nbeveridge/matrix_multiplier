@@ -29,11 +29,10 @@ obj/%.o: $(TDIR)/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 main: $(SHAREDOBJ) $(MAINOBJ)
-	$(CC) -o $(ODIR)/$@ $^ $(CFLAGS) -I ${BLAS_INC} -L ${BLAS_LIB} $(LIBS) -lopenblas
+	$(CC) -o $(ODIR)/$@ $^ $(CFLAGS) $(LIBS) 
 
 test: $(TESTOBJ) $(SHAREDOBJ)
-	$(CC) -o $(ODIR)/$@ $^ $(CFLAGS) -I ${BLAS_INC} -L ${BLAS_LIB} $(LIBS) -lopenblas
-
+	$(CC) -o $(ODIR)/$@ $^ $(CFLAGS) $(LIBS) 
 .PHONY: clean
 
 clean:

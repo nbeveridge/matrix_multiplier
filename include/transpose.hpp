@@ -1,5 +1,4 @@
 #pragma once
 #include <matrix.hpp>
 
-matrix transpose(matrix& mat);
-
+matrix transpose(matrix &mat);
