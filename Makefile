@@ -1,24 +1,37 @@
-IDIR =include
 CC=g++
+IDIR =include
 CFLAGS=-I $(IDIR) 
 
 ODIR=obj
 
 SDIR=src
 
+TDIR=tests
+
 LIBS=-lm
 
-_DEPS = matrix.hpp
+_DEPS = matrix.hpp test_matrices.hpp general_operations.hpp transpose.hpp test_funcs.hpp strassen.hpp
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o matrix.o 
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+_SHAREDOBJ = matrix.o general_operations.o transpose.o strassen.o
+SHAREDOBJ = $(patsubst %,$(ODIR)/%,$(_SHAREDOBJ))
 
+_MAINOBJ = main.o 
+MAINOBJ = $(patsubst %,$(ODIR)/%,$(_MAINOBJ))
+
+_TESTOBJ = test.o test_funcs.o
+TESTOBJ = $(patsubst %,$(ODIR)/%,$(_TESTOBJ))
 
 obj/%.o: $(SDIR)/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-main: $(OBJ)
+obj/%.o: $(TDIR)/%.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+main: $(SHAREDOBJ) $(MAINOBJ)
+	$(CC) -o $(ODIR)/$@ $^ $(CFLAGS) -I ${BLAS_INC} -L ${BLAS_LIB} $(LIBS) -lopenblas
+
+test: $(TESTOBJ) $(SHAREDOBJ)
 	$(CC) -o $(ODIR)/$@ $^ $(CFLAGS) -I ${BLAS_INC} -L ${BLAS_LIB} $(LIBS) -lopenblas
 
 .PHONY: clean

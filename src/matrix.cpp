@@ -6,6 +6,7 @@
 
 #include <matrix.hpp>
 
+
 matrix::matrix() {}
 
 matrix::matrix(enum MATRIX_FILL fill, const int rowsin, const int colsin, std::string values){
