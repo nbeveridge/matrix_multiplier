@@ -1,19 +1,70 @@
 #pragma once
 #include <string>
-
 #include <matrix.hpp>
 
+// One by one matrix
+extern std::string sm1x1;
+
+extern matrix m1x1; 
+
+extern std::string sm1x1squared;
+
+extern matrix m1x1squared; 
 
 
-std::string tm1 = "  [4.774, 9.162, 0.163, 0.000, 0.000, 0.000, 0.000, 0.000, ]\
-                    [6.289, 6.357, 2.429, 0.000, 0.000, 0.000, 0.000, 0.000, ]\
-                    [3.648, 7.173, 1.372, 0.000, 0.000, 0.000, 0.000, 0.000, ]\
-                    [5.134, 1.416, 8.042, 0.000, 0.000, 0.000, 0.000, 0.000, ]\
-                    [9.522, 6.070, 1.567, 0.000, 0.000, 0.000, 0.000, 0.000, ]\
-                    [0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, ]\
-                    [0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, ]\
-                    [0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, ]\
-                ";
+// Two by two matrices
+extern std::string s2;
 
+extern matrix m2; 
 
-matrix test2(matrix::MANUAL, 8,8,tm1); 
+extern std::string s3;
+
+extern matrix m3; 
+
+extern std::string s4;
+
+extern matrix m4; 
+
+extern std::string s5;
+
+extern matrix m5; 
+
+extern std::string s6;
+
+extern matrix m6; 
+
+// Large squares
+extern std::string s7;
+
+extern matrix m7; 
+
+extern std::string s8;
+
+extern matrix m8; 
+
+extern std::string s9;
+
+extern matrix m9; 
+
+extern std::string s10;
+
+extern matrix m10; 
+
+// Rectangular
+
+extern std::string s11;
+
+extern matrix m11; 
+
+extern std::string s12;
+
+extern matrix m12; 
+
+extern std::string s13;
+
+extern matrix m13;
+
+extern std::string s14;
+
+extern matrix m14;
+

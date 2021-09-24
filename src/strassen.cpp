@@ -1,26 +1,12 @@
 #include <strassen.hpp>
 #include <general_operations.hpp>
 
-matrix sq_matrix_multiply(matrix mat1, matrix mat2)
+matrix small_mult(matrix mat1, matrix mat2)
 {
 
-    matrix Empty(matrix::EMPTY, 2, 2);
-    double a, b, c, d, e, f, g, h;
+    matrix Empty(matrix::EMPTY, 1, 1);
 
-    a = mat1.arr[0];
-    b = mat1.arr[2];
-    c = mat1.arr[1];
-    d = mat1.arr[3];
-
-    e = mat2.arr[0];
-    f = mat2.arr[2];
-    g = mat2.arr[1];
-    h = mat2.arr[3];
-
-    Empty.arr[0] = a * e + b * g;
-    Empty.arr[2] = a * f + b * h;
-    Empty.arr[1] = c * e + d * g;
-    Empty.arr[3] = c * f + d * h;
+    Empty.arr[0] = mat1.arr[0] * mat2.arr[0];
 
     return Empty;
 }
@@ -28,9 +14,9 @@ matrix sq_matrix_multiply(matrix mat1, matrix mat2)
 matrix multiply_recurse(matrix mat1, matrix mat2)
 {
 
-    if (mat1.rows == 2)
+    if (mat1.rows == 1)
     {
-        return sq_matrix_multiply(mat1, mat2);
+        return small_mult(mat1, mat2);
     }
 
     matrix Empty(matrix::EMPTY, mat1.rows, mat2.cols);

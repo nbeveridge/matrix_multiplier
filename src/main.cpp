@@ -1,5 +1,4 @@
 #include <matrix.hpp>
-#include <general_operations.hpp>
 #include <transpose.hpp>
 #include <strassen.hpp>
 
@@ -15,6 +14,12 @@
 
 int main(void)
 {
+    std::string intro = "The main function serves to display some of the"
+                        "functionality of the project I have made. See the"
+                        " README for background and info on how to run tests.";
+
+    std::cout << intro << std::endl;
+
     // int rowsA, colsB, common;
     // int i,j,k;
 
@@ -63,8 +68,8 @@ int main(void)
     // C.print("C");//, C.arr, rowsA, colsB);
 
     // // multiply(A, B);
-    matrix Z10(matrix::RANDOM, 2, 4);
-    transpose(Z10);
+    // matrix Z10(matrix::RANDOM, 2, 4);
+    // transpose(Z10);
 
     // std::string s = "[1,2,3,4,] \
     //                  [5,6,7,8,] \
@@ -118,10 +123,10 @@ int main(void)
     // matrix X(matrix::RANDOM, 36,85);
     // matrix Y(matrix::RANDOM, 85,36);
 
-    matrix X(matrix::RANDOM, 2, 5);
-    matrix Y(matrix::RANDOM, 5, 3);
+    matrix X(matrix::RANDOM, 8, 3);
+    matrix Y(matrix::RANDOM, 3, 5);
 
-    matrix C(matrix::EMPTY, 2, 3);
+    matrix C(matrix::EMPTY, 8, 5);
 
     matrix a = multiply(X, Y);
 
@@ -132,6 +137,10 @@ int main(void)
     Y.print("Y");
     a.print("a");
     C.print("c");
+
+    transpose(X).print("X trans");
+
+
 
     // if (!is_equal(X,Y)) {
     //     std::cout << "X and Y not equal" << std::endl;
@@ -145,7 +154,7 @@ int main(void)
 
     // matrix test(matrix::MANUAL, 8,8,tm1);
 
-    test2.print("test");
+    // test2.print("test");
 
     // std::string s1 = "  [8.402, 7.831, 9.116, 3.352, 2.778, 0.000, 0.000, 0.000,] \
     //                     [3.944 7.984 1.976 7.682 5.540 0.000, 0.000, 0.000,] \

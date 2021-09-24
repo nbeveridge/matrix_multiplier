@@ -2,7 +2,7 @@
 
 #include <matrix.hpp>
 
-matrix sq_matrix_multiply(matrix mat1, matrix mat2);
+matrix small_mult(matrix mat1, matrix mat2);
 
 matrix multiply_recurse(matrix mat1, matrix mat2);
 

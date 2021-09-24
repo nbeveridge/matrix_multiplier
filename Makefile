@@ -10,16 +10,16 @@ TDIR=tests
 
 LIBS=-lm
 
-_DEPS = matrix.hpp test_matrices.hpp general_operations.hpp transpose.hpp test_funcs.hpp strassen.hpp
+_DEPS = matrix.hpp test_matrices.hpp general_operations.hpp transpose.hpp test_funcs.hpp strassen.hpp test_transpose.hpp test_strassen.hpp
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_SHAREDOBJ = matrix.o general_operations.o transpose.o strassen.o
+_SHAREDOBJ = matrix.o general_operations.o transpose.o strassen.o test_matrices.o 
 SHAREDOBJ = $(patsubst %,$(ODIR)/%,$(_SHAREDOBJ))
 
 _MAINOBJ = main.o 
 MAINOBJ = $(patsubst %,$(ODIR)/%,$(_MAINOBJ))
 
-_TESTOBJ = test.o test_funcs.o
+_TESTOBJ = test.o test_funcs.o test_transpose.o test_strassen.o
 TESTOBJ = $(patsubst %,$(ODIR)/%,$(_TESTOBJ))
 
 obj/%.o: $(SDIR)/%.cpp $(DEPS)
